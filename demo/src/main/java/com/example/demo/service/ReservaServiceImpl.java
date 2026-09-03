@@ -18,7 +18,7 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     public Reserva findById(Integer id) {
-        return reservaRepository.findById(id);
+        return reservaRepository.findById(id).orElse(null);
     }
 
     @Override

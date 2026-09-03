@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1
+      th:text="${usuario.id == null ? 'Nuevo usuario' : 'Editar usuario'}"
+    ></h1>
+    <form th:action="@{/usuarios/guardar}" th:object="${usuario}" method="post">
+      <input type="hidden" th:field="*{id}" />
+      <input type="hidden" th:field="*{activo}" />
+      <label>Nombre:</label>
+      <input type="text" th:field="*{nombre}" required />
+      <br />
+      <label>Correo:</label>
+      <input type="email" th:field="*{correo}" required />
+      <br />
+      <label>Empresa:</label>
+      <input type="text" th:field="*{empresa}" />
+      <br />
+      <label>Teléfono:</label>
+      <input type="text" th:field="*{telefono}" />
+      <br />
+      <button type="submit">Guardar</button>
+      <a th:href="@{/usuarios}">Cancelar</a>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Usuarios</h1>
+    <a href="@{/usuarios/nuevo}">Nuevo usuario</a>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Telefono</th>
+          <th>Activo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="u : ${usuarios}">
+          <td th:text="u.id"></td>
+          <td th:text="u.nombre"></td>
+          <td th:text="u.correo"></td>
+          <td th:text="u.telefono"></td>
+          <td th:text="${u.activo ? 'Activo' : 'Inactivo'}"></td>
+          <td>
+            <a th:href="@{/usuarios/editar/{id}(id=${u.id})}">Editar</a>
+            <a
+              th:if="${u.activo}"
+              th:href="@{/usuarios/desactivar/{id}(id=${u.id})}"
+            >
+              Desactivar
+            </a>
+            <a
+              th:unless="${u.activo}"
+              th:href="@{/usuarios/activar/{id}(id=${u.id})}"
+            >
+              Activar
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
