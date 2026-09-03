@@ -7,5 +7,5 @@ import com.example.demo.entities.Espacio;
 
 @Repository
 public interface EspacioRepository extends JpaRepository<Espacio, Integer> {
-
+    // JpaRepository ya trae las operaciones básicas para Espacio.
 }

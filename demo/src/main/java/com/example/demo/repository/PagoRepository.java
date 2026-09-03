@@ -7,5 +7,5 @@ import com.example.demo.entities.Pago;
 
 @Repository
 public interface PagoRepository extends JpaRepository<Pago, Integer> {
-
+    // Permite consultar y guardar pagos sin escribir SQL manual.
 }

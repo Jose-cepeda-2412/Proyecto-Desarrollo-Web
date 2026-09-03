@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 public class Servicio {
+    // Servicio adicional que puede ofrecerse junto con una reserva.
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

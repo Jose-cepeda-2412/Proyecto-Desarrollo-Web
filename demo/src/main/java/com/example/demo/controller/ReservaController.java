@@ -15,6 +15,7 @@ public class ReservaController {
     @Autowired
     ReservaService service;
 
+    // Carga todas las reservas para mostrarlas en la tabla de la vista.
     @GetMapping()
     public String mostrarReservas(Model model) {
 

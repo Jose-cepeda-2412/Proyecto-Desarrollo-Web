@@ -7,5 +7,5 @@ import com.example.demo.entities.Servicio;
 
 @Repository
 public interface ServicioRepository extends JpaRepository<Servicio, Integer> {
-
+    // Maneja las consultas básicas de los servicios disponibles.
 }

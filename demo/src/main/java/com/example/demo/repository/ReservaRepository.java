@@ -7,5 +7,5 @@ import com.example.demo.entities.Reserva;
 
 @Repository
 public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
-
+    // Centraliza el acceso a la tabla de reservas.
 }

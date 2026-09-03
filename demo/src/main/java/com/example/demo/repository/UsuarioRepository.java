@@ -6,6 +6,6 @@ import com.example.demo.entities.Usuario;
 
 
 public interface UsuarioRepository  
-        extends JpaRepository<Usuario, Long>{ //usuario es la entidad y long es la llave primaria 
-    
+        extends JpaRepository<Usuario, Long>{ // Usuario es la entidad y Long es el tipo de su id.
+
 } 

@@ -14,6 +14,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 public class Espacio {
+    // Representa un lugar que se puede reservar dentro del sistema.
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
