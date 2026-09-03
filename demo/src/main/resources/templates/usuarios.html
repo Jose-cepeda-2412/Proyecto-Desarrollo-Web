@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Usuarios</h1>
-    <a href="@{/usuarios/nuevo}">Nuevo usuario</a>
+    <a th:href="@{/usuarios/nuevo}">Nuevo usuario</a>
     <table border="1">
       <thead>
         <tr>
@@ -20,10 +20,10 @@
       </thead>
       <tbody>
         <tr th:each="u : ${usuarios}">
-          <td th:text="u.id"></td>
-          <td th:text="u.nombre"></td>
-          <td th:text="u.correo"></td>
-          <td th:text="u.telefono"></td>
+          <td th:text="${u.id}"></td>
+          <td th:text="${u.nombre}"></td>
+          <td th:text="${u.correo}"></td>
+          <td th:text="${u.telefono}"></td>
           <td th:text="${u.activo ? 'Activo' : 'Inactivo'}"></td>
           <td>
             <a th:href="@{/usuarios/editar/{id}(id=${u.id})}">Editar</a>

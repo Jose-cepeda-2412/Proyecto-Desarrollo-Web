@@ -27,7 +27,7 @@ public class UsuarioController {
     @GetMapping("/nuevo")
     public String nuevo(Model model) {
         model.addAttribute("usuario", new Usuario());
-        return "usuario-form";
+        return "vista_usuario";
     }
 
     @PostMapping("/guardar")
@@ -39,7 +39,7 @@ public class UsuarioController {
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable Long id, Model model) {
         model.addAttribute("usuario", service.buscarPorId(id));
-        return "usuario-form";
+        return "vista_usuario";
     }
     
     @GetMapping("/desactivar/{id}")

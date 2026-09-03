@@ -3,10 +3,12 @@ package com.example.demo.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import com.example.demo.repository.ReservaRepository;
+import org.springframework.stereotype.Service;
+
 import com.example.demo.entities.Usuario;
 import com.example.demo.repository.UsuarioRepository;
 
+@Service
 public class UsuarioServicelmpl implements UsuarioService{
     
     @Autowired

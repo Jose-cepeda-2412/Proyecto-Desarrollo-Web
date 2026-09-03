@@ -1,6 +1,5 @@
 package com.example.demo.entities;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,15 +19,18 @@ public class Usuario {
     private String nombre;
     @Column (nullable = false, unique = true, length = 120)
     private String correo;
+    @Column(length = 120)
+    private String empresa;
     @Column(length = 30)
     private String telefono;
     @Column (nullable = false)
     private Boolean activo = true;
 
-    public Usuario(String nombre, String correo, String telefono){
-        nombre = this.nombre;
-        correo = this.correo;
-        telefono = this.telefono;
+    public Usuario(String nombre, String correo, String empresa, String telefono) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.empresa = empresa;
+        this.telefono = telefono;
         this.activo = true;
     }
 }

@@ -13,7 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Espacio {
+public class Servicio {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -21,9 +22,9 @@ public class Espacio {
     @Column(nullable = false, length = 120)
     private String nombre;
 
-    @Column(nullable = false)
-    private Integer capacidad;
+    @Column(length = 255)
+    private String descripcion;
 
     @Column(nullable = false)
-    private Double precioBase;
+    private Double precio;
 }
