@@ -5,13 +5,15 @@ import com.example.demo.repository.ReservaRepository;
 
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ReservaServiceImpl implements ReservaService {
 
     // El servicio usa el repositorio para separar la lógica del acceso a datos.
-    private final ReservaRepository reservaRepository;
+    @Autowired 
+    private ReservaRepository reservaRepository;
 
     public ReservaServiceImpl(ReservaRepository reservaRepository) {
         this.reservaRepository = reservaRepository;

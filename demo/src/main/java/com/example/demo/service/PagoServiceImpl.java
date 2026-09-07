@@ -5,13 +5,15 @@ import com.example.demo.repository.PagoRepository;
 
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PagoServiceImpl implements PagoService {
 
     // Se usa para consultar pagos desde la capa de servicio.
-    private final PagoRepository pagoRepository;
+    @Autowired 
+    private PagoRepository pagoRepository;
 
     public PagoServiceImpl(PagoRepository pagoRepository) {
         this.pagoRepository = pagoRepository;

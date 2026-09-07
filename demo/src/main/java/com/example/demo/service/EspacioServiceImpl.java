@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Espacio;
@@ -11,7 +12,8 @@ import com.example.demo.repository.EspacioRepository;
 public class EspacioServiceImpl implements EspacioService {
 
     // El repositorio hace el trabajo directo con la base de datos.
-    private final EspacioRepository espacioRepository;
+    @Autowired 
+    private EspacioRepository espacioRepository;
 
     public EspacioServiceImpl(EspacioRepository espacioRepository) {
         this.espacioRepository = espacioRepository;
