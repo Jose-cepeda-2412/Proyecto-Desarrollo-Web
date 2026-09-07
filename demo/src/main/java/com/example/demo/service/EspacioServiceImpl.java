@@ -1,33 +1,35 @@
 package com.example.demo.service;
 
-import java.util.Collection;
-
+import com.example.demo.entities.Espacio;
+import com.example.demo.repository.EspacioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entities.Espacio;
-import com.example.demo.repository.EspacioRepository;
+import java.util.List;
 
 @Service
 public class EspacioServiceImpl implements EspacioService {
 
-    // El repositorio hace el trabajo directo con la base de datos.
-    @Autowired 
+    @Autowired
     private EspacioRepository espacioRepository;
 
-    public EspacioServiceImpl(EspacioRepository espacioRepository) {
-        this.espacioRepository = espacioRepository;
+    @Override
+    public List<Espacio> obtenerTodos() {
+        return espacioRepository.findAll();
     }
 
-    // Si no encuentra el espacio, devuelve null para que quien lo use pueda validarlo.
     @Override
-    public Espacio findById(Integer id) {
+    public Espacio guardar(Espacio espacio) {
+        return espacioRepository.save(espacio);
+    }
+
+    @Override
+    public Espacio obtenerPorId(Long id) {
         return espacioRepository.findById(id).orElse(null);
     }
 
-    // Trae todos los espacios guardados.
     @Override
-    public Collection<Espacio> findAll() {
-        return espacioRepository.findAll();
+    public void eliminar(Long id) {
+        espacioRepository.deleteById(id);
     }
 }

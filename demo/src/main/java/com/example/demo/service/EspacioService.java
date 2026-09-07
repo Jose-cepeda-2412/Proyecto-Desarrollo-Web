@@ -1,13 +1,11 @@
 package com.example.demo.service;
 
 import com.example.demo.entities.Espacio;
-import java.util.Collection;
+import java.util.List;
 
 public interface EspacioService {
-
-    // Busca un espacio específico cuando se conoce su id.
-    public Espacio findById(Integer id);
-
-    // Devuelve todos los espacios para listarlos o seleccionarlos.
-    public Collection<Espacio> findAll();
+    List<Espacio> obtenerTodos();
+    Espacio guardar(Espacio espacio);
+    Espacio obtenerPorId(Long id);
+    void eliminar(Long id);
 }

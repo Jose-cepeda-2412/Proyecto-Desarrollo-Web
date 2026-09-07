@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Reserva</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4 th:text="${reserva.id == null ? 'Registrar Reserva' : 'Editar Reserva'}">Reserva</h4>
+            </div>
+            <div class="card-body">
+                <form th:action="@{/reservas/guardar}" th:object="${reserva}" method="post">
+                    <input type="hidden" th:field="*{id}" />
+
+                    <div class="mb-3">
+                        <label class="form-label">Fecha:</label>
+                        <input type="date" th:field="*{fecha}" class="form-control" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Hora:</label>
+                        <input type="time" th:field="*{hora}" class="form-control" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Usuario:</label>
+                        <select th:field="*{usuario.id}" class="form-select" required>
+                            <option value="">-- Seleccionar Usuario --</option>
+                            <option th:each="u : ${usuarios}" th:value="${u.id}" th:text="${u.nombre}"></option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Espacio:</label>
+                        <select th:field="*{espacio.id}" class="form-select" required>
+                            <option value="">-- Seleccionar Espacio --</option>
+                            <option th:each="e : ${espacios}" th:value="${e.id}" th:text="${e.nombre}"></option>
+                        </select>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a th:href="@{/reservas}" class="btn btn-secondary">Cancelar</a>
+                        <button type="submit" class="btn btn-success">Guardar Reserva</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>l>
